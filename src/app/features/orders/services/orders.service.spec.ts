@@ -3,7 +3,8 @@ import {TestBed} from '@angular/core/testing';
 import {OrdersService} from './orders.service';
 import {Order} from "../models/Order";
 import {TAX_FOR_BOOKS} from "../../../utils/consts";
-import {orderMock, TOTAL_MOCK, TOTAL_TAX_AMOUNT_MOCK} from "../../../utils/mocks";
+import {Bill_MOCK, orderMock, TOTAL_MOCK, TOTAL_TAX_AMOUNT_MOCK} from "../../../utils/mocks";
+import {Bill} from "../models/Bill";
 
 describe('OrdersService', () => {
   let service: OrdersService;
@@ -38,18 +39,10 @@ describe('OrdersService', () => {
     });
   });
 
-  it('should refresh tax amount after add new order', (done:DoneFn) => {
+  it('should refresh the bill after add new order', (done:DoneFn) => {
     service.add(orderMock);
-    service.taxAmounts$.subscribe((newTaxAmount: number) => {
-      expect(newTaxAmount).toEqual(TOTAL_TAX_AMOUNT_MOCK);
-      done();
-    });
-  });
-
-  it('should refresh total after add new order', (done:DoneFn) => {
-    service.add(orderMock);
-    service.total$.subscribe((newTotal: number) => {
-      expect(newTotal).toEqual(TOTAL_MOCK);
+    service.billSubject$.subscribe((newBill: Bill) => {
+      expect(newBill).toEqual(Bill_MOCK);
       done();
     });
   });

@@ -4,6 +4,7 @@ import {Order} from "../../models/Order";
 import {OrdersService} from "../../services/orders.service";
 import {NewOrderForm} from "../../models/newOrderForm";
 import {mapOrderFromForm} from "../../mappers/orderMapper";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-orders-list',
@@ -16,6 +17,7 @@ export class OrdersListComponent implements OnInit {
 
   constructor(
     private ordersService: OrdersService,
+    private router: Router,
   ) {
   }
 
@@ -26,4 +28,9 @@ export class OrdersListComponent implements OnInit {
   onAddNewOrder(newOrderForm: NewOrderForm): void {
     this.ordersService.add(mapOrderFromForm(newOrderForm));
   }
+
+  generateBill(): void {
+    this.router.navigate(['bill']);
+  }
+
 }

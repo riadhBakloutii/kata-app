@@ -20,3 +20,9 @@ export const newOrderFormMock: NewOrderForm = {
   productPrice: 100,
   isImported: true,
 }
+
+export const Bill_MOCK = {
+  orders: [orderMock],
+  taxAmount: 30,
+  total: 230,
+}

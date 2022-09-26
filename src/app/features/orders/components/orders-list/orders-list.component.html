@@ -5,7 +5,7 @@
 </section>
 <hr>
 
-<!--input summary section-->
+<!--orders section-->
 <section class="main-section center-container">
   <h3>Vos Commandes</h3>
   <div class="card-view">
@@ -13,13 +13,5 @@
       {{order.amount}} {{order.name}} {{order.isImported ? 'importé' : ''}} à {{order.pht | currency:'EUR'}}
     </div>
   </div>
-</section>
-<hr>
-
-<!--output section-->
-<section class="main-section center-container">
-  <h3>Votre Facture</h3>
-  <div class="card-view" *ngIf="(ordersList$ | async)?.length!==0">
-    <app-bill></app-bill>
-  </div>
+  <button class="primary-btn" (click)="generateBill()">Générer la facture</button>
 </section>

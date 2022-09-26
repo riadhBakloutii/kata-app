@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {BehaviorSubject, Observable, of} from "rxjs";
 import {Order} from "../../models/Order";
 import {OrdersService} from "../../services/orders.service";
+import {Bill} from "../../models/Bill";
 
 @Component({
   selector: 'app-bill',
@@ -10,9 +11,7 @@ import {OrdersService} from "../../services/orders.service";
 })
 export class BillComponent implements OnInit {
 
-  ordersList$: BehaviorSubject<Order[]> = new BehaviorSubject<Order[]>([]);
-  taxAmounts$: BehaviorSubject<number> = new BehaviorSubject<number>(0);
-  total$: BehaviorSubject<number> = new BehaviorSubject<number>(0);
+  billSubject$ = new BehaviorSubject<Bill>({orders: [], taxAmount: 0, total: 0,});
 
   constructor(
     private ordersService: OrdersService,
@@ -20,9 +19,10 @@ export class BillComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.ordersList$ = this.ordersService.ordersSubject$;
-    this.taxAmounts$ = this.ordersService.taxAmounts$;
-    this.total$ = this.ordersService.total$;
+    this.billSubject$ = this.ordersService.billSubject$;
   }
 
+  printBill() {
+    window.print();
+  }
 }

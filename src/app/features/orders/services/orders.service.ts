@@ -10,6 +10,7 @@ import {
   TAX_FOR_MEDS,
   TAX_FOR_OTHERS_TYPES
 } from "../../../utils/consts";
+import {Bill} from "../models/Bill";
 
 @Injectable({
   providedIn: 'root'
@@ -17,21 +18,21 @@ import {
 export class OrdersService {
 
   ordersSubject$ = new BehaviorSubject<Order[]>([]);
-  taxAmounts$ = new BehaviorSubject<number>(0);
-  total$ = new BehaviorSubject<number>(0);
+  billSubject$ = new BehaviorSubject<Bill>({orders: [], taxAmount: 0, total: 0,});
   private _orders: Order[] = [];
-  private _taxAmounts: number = 0;
-  private _total: number = 0;
+  private _bill: Bill = {orders: [], taxAmount: 0, total: 0,};
 
   constructor() { }
 
   add(order: Order): void {
     this._orders.push(order);
-    this._taxAmounts += (order.pttc - order.pht * order.amount);
-    this._total += order.pttc;
+    this._bill = {
+      orders: this._orders,
+      taxAmount: this._bill.taxAmount += (order.pttc - order.pht * order.amount),
+      total: this._bill.total += order.pttc,
+    }
     this.ordersSubject$.next(this._orders);
-    this.taxAmounts$.next(this._taxAmounts);
-    this.total$.next(this._total);
+    this.billSubject$.next(this._bill);
   }
 
   static getTaxPercent(productType: ProductTypesEnum): number {

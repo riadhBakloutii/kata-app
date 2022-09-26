@@ -1,7 +1,7 @@
 <form [formGroup]="addForm" (ngSubmit)="onAddNewOrder()">
   <div class="center-container">
 
-    <h3>Add New Order</h3>
+    <h3>Ajouter une nouvelle commande</h3>
 
     <section class="sub-section card-view">
       <label for="amount">Quantité: </label>
@@ -41,12 +41,12 @@
     </section>
 
     <section class="sub-section card-view">
-      <label for="is_imported">The product is imported: </label>
+      <label for="is_imported">Le produit est importé </label>
       <input id="is_imported" type="checkbox" formControlName="isImported" class="form-control m-2">
     </section>
 
     <div class="error-msg" *ngIf="isSubmitted && !addForm.valid">* Veuillez d'abord remplir tout le formulaire</div>
 
-    <button class="primary-btn" type="submit">Add the Order</button>
+    <button class="primary-btn" type="submit">ajouter la commande</button>
   </div>
 </form>
