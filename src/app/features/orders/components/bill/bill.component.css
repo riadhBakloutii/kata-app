@@ -1,0 +1,7 @@
+hr {
+  color: var(--accent-color);
+}
+
+.result-info {
+  margin: 10px 50px;
+}

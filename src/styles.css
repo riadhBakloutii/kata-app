@@ -1,0 +1,124 @@
+:root {
+  --main-color: #cec7bd;
+  --accent-color: #998882;
+  --main-background-color: #efece9;
+}
+
+body {
+  margin: 0;
+  font-family: Tahoma, sans-serif;
+  background-color: var(--main-background-color);
+}
+
+label {
+  font-weight: bold;
+  font-size: 1rem;
+  padding-inline-end: 10px;
+  color: var(--accent-color);
+  margin-bottom: 20px;
+  align-self: center;
+}
+
+h3 {
+  font-weight: bold;
+  font-size: 2rem;
+  color: var(--accent-color);
+  text-align: center;
+}
+
+input, select {
+  height: 40px;
+  padding: 0 20px;
+  border-radius: 20px;
+  margin: 20px 0;
+  border: 1px solid var(--accent-color);
+}
+
+input[type=checkbox] {
+  float: left;
+  padding: 0;
+  height: auto;
+  margin: 0 20Px 0 0;
+}
+
+hr {
+  width: 10%;
+  border: 10px dotted;
+  border-style: none none dotted;
+  color: var(--main-color);
+}
+
+.main-section {
+  padding: 5rem 20%;
+}
+
+.sub-section {
+  padding: 2rem 10%;
+}
+
+.block {
+  display: block;
+}
+
+.grouped-input {
+  display: inline-block;
+  margin: 20px 0;
+}
+
+.col-6 {
+  width: 50%;
+}
+
+.center-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-view {
+  background-color: var(--main-color);
+  border-radius: 20px;
+  margin: 20px 0;
+}
+
+.primary-btn {
+  width: 40%;
+  padding: 20px 30px;
+  align-self: center;
+  color: white;
+  border-radius: 30px;
+  margin: 20px 0;
+  border: none;
+  background-image: linear-gradient(to left, var(--accent-color), var(--main-color))
+}
+
+.primary-btn:hover {
+  background-image: linear-gradient(to right, var(--accent-color), var(--main-color))
+}
+
+.order-item {
+  margin: 20px 50px;
+}
+
+.order-item:after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 2px;
+  margin-top: 15px;
+  background: var(--accent-color);
+}
+
+@media (max-width: 900px) {
+  .main-section {
+    padding: 2rem 10%;
+  }
+
+  .grouped-input {
+    display: block;
+    margin: 10px 0;
+  }
+
+  .col-6 {
+    width: 100%;
+  }
+}

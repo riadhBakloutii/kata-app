@@ -1,0 +1,52 @@
+<form [formGroup]="addForm" (ngSubmit)="onAddNewOrder()">
+  <div class="center-container">
+
+    <h3>Add New Order</h3>
+
+    <section class="sub-section card-view">
+      <label for="amount">Quantité: </label>
+      <input id="amount"
+             type="number"
+             formControlName="amount"
+             class="form-control m-2"
+             placeholder="saisissez la quantité">
+    </section>
+
+    <section class="sub-section card-view">
+      <div class="grouped-input col-6">
+        <label for="product_name">Nom du produit : </label>
+        <input id="product_name"
+               type="text"
+               formControlName="productName"
+               placeholder="saisissez le nom du produit"
+               class="form-control m-2">
+      </div>
+
+      <div class="grouped-input col-6">
+        <label for="product_price">Prix du produit : </label>
+        <input id="product_price"
+               type="number"
+               formControlName="productPrice"
+               class="form-control m-2"
+               placeholder="saisissez le prix du produit">
+      </div>
+
+      <div class="block col-6">
+        <label for="product_type">Type du produit: </label>
+        <select id="product_type" formControlName="productType" class="form-control m-2">
+          <option>Selectionnez une option</option>
+          <option *ngFor="let type of productTypes">{{type}}</option>
+        </select>
+      </div>
+    </section>
+
+    <section class="sub-section card-view">
+      <label for="is_imported">The product is imported: </label>
+      <input id="is_imported" type="checkbox" formControlName="isImported" class="form-control m-2">
+    </section>
+
+    <div class="error-msg" *ngIf="isSubmitted && !addForm.valid">* Veuillez d'abord remplir tout le formulaire</div>
+
+    <button class="primary-btn" type="submit">Add the Order</button>
+  </div>
+</form>

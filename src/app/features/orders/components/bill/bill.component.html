@@ -1,0 +1,8 @@
+<div *ngFor="let order of ordersList$ | async" class="order-item">
+  {{order.amount}} {{order.name}} {{order.isImported ? 'importé' : ''}} à {{order.pht | currency:'EUR'}}
+  : {{order.pttc | currency:'EUR'}}
+</div>
+<hr>
+
+<div id="tax_amount" class="result-info">Montant des taxes : {{taxAmounts$ | async}}</div>
+<div id="total_amount" class="result-info">Total : {{total$ | async}}</div>

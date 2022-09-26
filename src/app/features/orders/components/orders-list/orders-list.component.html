@@ -1,0 +1,25 @@
+<!--add new order section-->
+<section class="main-section">
+  <app-add-order
+    (newOrderEvent)="onAddNewOrder($event)"></app-add-order>
+</section>
+<hr>
+
+<!--input summary section-->
+<section class="main-section center-container">
+  <h3>Vos Commandes</h3>
+  <div class="card-view">
+    <div *ngFor="let order of ordersList$ | async" class="order-item">
+      {{order.amount}} {{order.name}} {{order.isImported ? 'importé' : ''}} à {{order.pht | currency:'EUR'}}
+    </div>
+  </div>
+</section>
+<hr>
+
+<!--output section-->
+<section class="main-section center-container">
+  <h3>Votre Facture</h3>
+  <div class="card-view" *ngIf="(ordersList$ | async)?.length!==0">
+    <app-bill></app-bill>
+  </div>
+</section>
