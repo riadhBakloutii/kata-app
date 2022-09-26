@@ -1,6 +1,8 @@
+Make sure to run `npm install` to install packages.
 # KataApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.9.
+It is an application to manage orders list with their taxes and bills. 
 
 ## Development server
 
