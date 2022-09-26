@@ -1,36 +1,3 @@
-Skip to content
-Search or jump to…
-Pull requests
-Issues
-Marketplace
-Explore
- 
-@riadhBakloutii 
-angular
-/
-angular
-Public
-Code
-Issues
-1.1k
-Pull requests
-123
-Discussions
-Actions
-Projects
-6
-Security
-Insights
-angular/.gitignore
-@devversion
-devversion ci: fix stamping for builds performed in CI (#45147)
-…
-Latest commit e56472d on 20 Feb
- History
- 33 contributors
-@alexeagle@mhevery@gkalpak@IgorMinar@devversion@tbosch@vsavkin@josephperrott@uraj@petebacondarwin@ocombe@zarend
-58 lines (46 sloc)  915 Bytes
-
 .DS_STORE
 
 /dist/
@@ -89,17 +56,3 @@ baseline.json
 
 # Husky
 .husky/_
-Footer
-© 2022 GitHub, Inc.
-Footer navigation
-Terms
-Privacy
-Security
-Status
-Docs
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
