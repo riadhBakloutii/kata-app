@@ -3,15 +3,16 @@
   <app-add-order
     (newOrderEvent)="onAddNewOrder($event)"></app-add-order>
 </section>
+
 <hr>
 
 <!--orders section-->
 <section class="main-section center-container">
   <h3>Vos Commandes</h3>
   <div class="card-view">
-    <div *ngFor="let order of ordersList$ | async" class="order-item">
+    <p *ngFor="let order of ordersList$ | async" class="order-item">
       {{order.amount}} {{order.name}} {{order.isImported ? 'importé' : ''}} à {{order.pht | currency:'EUR'}}
-    </div>
+    </p>
   </div>
   <button class="primary-btn" (click)="generateBill()">Générer la facture</button>
 </section>

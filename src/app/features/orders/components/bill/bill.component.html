@@ -2,14 +2,14 @@
 
     <h3>Votre Facture</h3>
     <div class="card-view">
-        <div *ngFor="let order of (billSubject$ | async)?.orders" class="order-item">
+        <p *ngFor="let order of (billSubject$ | async)?.orders" class="order-item">
             {{order.amount}} {{order.name}} {{order.isImported ? 'importé' : ''}} à {{order.pht | currency:'EUR'}}
             : {{order.pttc | currency:'EUR'}}
-        </div>
+        </p>
         <hr>
 
-        <div id="tax_amount" class="result-info">Montant des taxes : {{(billSubject$ | async)?.taxAmount | currency:'EUR'}}</div>
-        <div id="total_amount" class="result-info">Total : {{(billSubject$ | async)?.total | currency:'EUR'}}</div>
+        <p id="tax_amount" class="result-info">Montant des taxes : {{(billSubject$ | async)?.taxAmount | currency:'EUR'}}</p>
+        <p id="total_amount" class="result-info">Total : {{(billSubject$ | async)?.total | currency:'EUR'}}</p>
 
     </div>
     <button class="primary-btn" (click)="printBill()">Télécharger la facture</button>

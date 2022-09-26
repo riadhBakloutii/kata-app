@@ -22,7 +22,7 @@ export class BillComponent implements OnInit {
     this.billSubject$ = this.ordersService.billSubject$;
   }
 
-  printBill() {
+  printBill(): void {
     window.print();
   }
 }

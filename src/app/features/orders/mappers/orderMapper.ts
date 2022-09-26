@@ -4,7 +4,7 @@ import {Order} from "../models/Order";
 
 export const mapOrderFromForm = (newOrderForm: NewOrderForm): Order => {
   return {
-    amount: newOrderForm.amount,
+    amount: newOrderForm.amount ,
     name: newOrderForm.productName,
     type: newOrderForm.productType,
     pht: newOrderForm.productPrice,

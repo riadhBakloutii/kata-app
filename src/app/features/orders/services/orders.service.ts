@@ -24,7 +24,7 @@ export class OrdersService {
 
   constructor() { }
 
-  add(order: Order): void {
+  addOrder(order: Order): void {
     this._orders.push(order);
     this._bill = {
       orders: this._orders,
